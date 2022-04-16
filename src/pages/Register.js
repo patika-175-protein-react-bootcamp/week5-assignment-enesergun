@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react'
-import {Logo, ParalellogramSmall, ParalellogramLarge, Underline, DarkModeIcon, LightModeIcon} from '../constants/icons'
+import { useState } from 'react'
+import { Underline, DarkModeIcon, LightModeIcon} from '../constants/icons'
 import { Formik } from 'formik';
 import { RegisterSchema } from '../constants/yupSchema';
 import useTheme from '../hooks/useTheme'

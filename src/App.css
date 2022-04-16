@@ -116,7 +116,8 @@ label.required::after {
 }
 
 input[type="text"],
-input[type="password"] {  
+input[type="password"],
+input[type="email"] {  
   border: 2px solid #8E8E8E;
   height: 40px;
   background-color: transparent;

@@ -2,43 +2,64 @@ import React from 'react'
 import { RegisterSchema } from '../constants/yupSchema';
 import { Formik } from 'formik';
 
-let validatonElements = [
+let validatonElements = [{
     /* {name : {type : text, name: "name", placeholder : 'İsminizi giriniz.'}},
     {surname: {type: text, name: "surname", placeholder: "Soyisminizi giriniz."}}, */
-    {email : {type: "email", name: "email", required: "required", placeholder: "Eposta adresinizi giriniz", innerText: "E-POSTA"}},
-    {username: {type: "text", name: "username", required: "required", placeholder: "Kullanıcı adınızı giriniz", innerText: "KULLANICI ADI"}},
-    {password: {type: "password", name: "password", required: "required", placeholder:"Şifrenizi gir.", innerText: "ŞİFRE"}},
-    {confirmPassword: {type: "password", name: "confirmPassword", required: "required", placeholder:"Şifreni doğrula.", innerText: "ŞİFRENİ TEKRAR GİR"}}
-]
+    email : {type: "email", name: "email", required: "required", placeholder: "Eposta adresinizi giriniz", innerText: "E-POSTA"},
+    username: {type: "text", name: "username", required: "required", placeholder: "Kullanıcı adınızı giriniz", innerText: "KULLANICI ADI"},
+    password: {type: "password", name: "password", required: "required", placeholder:"Şifrenizi gir.", innerText: "ŞİFRE"},
+    confirmPassword: {type: "password", name: "confirmPassword", required: "required", placeholder:"Şifreni doğrula.", innerText: "ŞİFRENİ TEKRAR GİR"}
+}]
+
+console.log(validatonElements[0]["email"].placeholder)
+
 
 const FormValidation = ({values, theme, handleChange, errors, }) => {
 
     return (
         <>
         <div className={'formGroup firstName'}>
-                        <div className="formElement name">
-                            <label className={theme === 'light' ? 'title' : 'title titleDark'}>İSİM</label>
-                            <input
-                            type="text"
-                            name="name"
-                            placeholder='İsminizi giriniz'
-                            value={values.name}
-                            onChange={handleChange}
+            <div className="formElement name">
+                <label className={theme === 'light' ? 'title' : 'title titleDark'}>İSİM</label>
+                    <input
+                        type="text"
+                        name="name"
+                        placeholder='İsminizi giriniz'
+                        value={values.name}
+                        onChange={handleChange}
+                    />
+                    {errors.name && <div className='error'>{errors.name}</div>}
+            </div>
+
+            <div className="formElement surname">
+                <label className={theme === 'light' ? 'title' : 'title titleDark'}>SOYİSİM</label>
+                    <input
+                        type="text"
+                        name="surname"
+                        placeholder='Soyisminizi giriniz'
+                        value={values.surname}
+                        onChange={handleChange}
+                    />
+                    {errors.surname && <div className='error'>{errors.surname}</div>}
+            </div>
+        </div>
+        {/* {
+            Object.keys(validatonElements[0]).map((item, index) => (
+                <div className='formGroup' key={index}>
+                    <div className={`formElement ${validatonElements[0][`${item}`].name}`}>
+                    <label className={theme === 'light' ? `${validatonElements[0][`${item}`].required} title` : `${validatonElements[0][`${item}`].required} title titleDark`}>{validatonElements[0][`${item}`].placeholder}</label>
+                    <input
+                        type={validatonElements[0][`${item}`].type}
+                        name={validatonElements[0][`${item}`].name}
+                        placeholder={validatonElements[0][`${item}`].placeholder}
+                        value={values.email}
+                        onChange={handleChange}                        
                         />
-                            {errors.name && <div className='error'>{errors.name}</div>}
-                        </div>
-                        <div className="formElement surname">
-                            <label className={theme === 'light' ? 'title' : 'title titleDark'}>SOYİSİM</label>
-                            <input
-                            type="text"
-                            name="surname"
-                            placeholder='Soyisminizi giriniz'
-                            value={values.surname}
-                            onChange={handleChange}
-                            />
-                            {errors.surname && <div className='error'>{errors.surname}</div>}
-                        </div>
+                        {errors[item] && <span className='error'>{errors[item]}</span>}     
                     </div>
+                </div>
+            ))
+        } */}
                   
                   <div className={'formGroup'}>
                     <div className="formElement email">
