@@ -1,6 +1,6 @@
 import React from 'react'
 import {Logo, ParalellogramSmall, ParalellogramLarge, Underline} from '../constants/icons'
-import { Formik } from 'formik';
+import { Formik, Field } from 'formik';
 import { RegisterSchema } from '../constants/yupSchema';
 
 
@@ -54,40 +54,46 @@ function Register() {
                     {
               ({ values, handleChange, handleSubmit, errors }) =>
                 <form >
-                    <div className={'formGroup'}>
-                        <label className='title'>İSİM</label>
+                    <div className={'formGroup firstName'}>
+                        <div className="formElement name">
+                            <label className='title'>İSİM</label>
+                            <input
+                            type="text"
+                            name="name"
+                            placeholder='İsminizi giriniz'
+                            value={values.name}
+                            onChange={handleChange}
+                        />
+                            <span>{errors.name}</span>
+                        </div>
+                        <div className="formElement surname">
+                            <label className='title'>SOYİSİM</label>
+                            <input
+                            type="text"
+                            name="surname"
+                            placeholder='Soyisminizi giriniz'
+                            value={values.surname}
+                            onChange={handleChange}
+                            />
+                            <span>{errors.surname}</span>
+                        </div>
+                    </div>
+                  
+                  <div className={'formGroup'}>
+                    <div className="formElement email">
+                        <label className='required title'>EMAIL</label>
                         <input
                         type="text"
-                        name="name"
-                        placeholder='İsminizi giriniz'
-                        value={values.name}
+                        name="email"
+                        placeholder='Eposta adresinizi giriniz'
+                        value={values.email}
                         onChange={handleChange}
-                    />
-                    <span>{errors.name}</span>
+                        />
+                        <span>{errors.email}</span>
+                    </div>
                   </div>
                   <div className={'formGroup'}>
-                    <label className='title'>SOYİSİM</label>
-                    <input
-                      type="text"
-                      name="surname"
-                      placeholder='Soyisminizi giriniz'
-                      value={values.surname}
-                      onChange={handleChange}
-                      />
-                    <span>{errors.surname}</span>
-                  </div>
-                  <div className={'formGroup'}>
-                    <label className='required title'>EMAIL</label>
-                    <input
-                      type="text"
-                      name="email"
-                      placeholder='Eposta adresinizi giriniz'
-                      value={values.email}
-                      onChange={handleChange}
-                      />
-                    <span>{errors.email}</span>
-                  </div>
-                  <div className={'formGroup'}>
+                    <div className="formElement username">
                     <label className='required title'>KULLANICI ADI</label>
                     <input
                       type="text"
@@ -97,9 +103,11 @@ function Register() {
                       onChange={handleChange}
                       />
                     <span>{errors.username}</span>
+                    </div>
                   </div>
 
                   <div className={'formGroup'}>
+                    <div className="formElement password">
                     <label className='required title'>PASSWORD</label>
                     <input
                       type="password"
@@ -109,9 +117,11 @@ function Register() {
                       onChange={handleChange}
                       />
                     <span>{errors.password}</span>
+                    </div>
                   </div>
 
                   <div className={'formGroup'}>
+                    <div className="formElement confirmPassword">
                     <label className='required title'>ŞİFRENİ TEKRAR GİR</label>
                     <input
                       type="password"
@@ -121,9 +131,17 @@ function Register() {
                       onChange={handleChange}
                       />
                     <span>{errors.confirmPassword}</span>
+                    </div>
                   </div>
 
-                  
+                  <div className="formGroup">
+                    <div className="formElement">
+                        <label className='checkBoxLabel'>                
+                            <Field type="checkbox" name="checked" value="acceptTerm" />
+                            Sözleşmeyi kabul ediyorum
+                        </label>
+                    </div>
+                  </div>
                   <div className='formGroup formButton'>
                     <button className='loginButton' type='submit' onClick={handleSubmit} >
                         Kayıt Ol                      

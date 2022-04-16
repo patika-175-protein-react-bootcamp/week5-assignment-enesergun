@@ -40,7 +40,7 @@ body {
 }
 .FormContainer {
   padding-top: 40px;
-  width: 50%;
+  width: 75%;
   margin: 0 auto;
 }
 
@@ -58,4 +58,42 @@ h3 {
 
 form {
   margin-top: 30px;
+}
+
+.formElement {
+  display: flex;
+  flex-direction: column;
+}
+.firstName {
+  display: flex;
+  justify-content: space-between;
+}
+
+.name,
+.surname {
+  width: 45%;
+}
+
+label.required::after {
+  content: "*";
+  color: red;
+  padding-left: 2px;
+}
+
+input[type="text"],
+input[type="password"] {  
+  border: 2px solid #8E8E8E;
+  height: 40px;
+  background-color: transparent;
+  border-radius: 4px;  
+  font-size: 16px;
+  line-height: 20.2px;
+  letter-spacing: 0.15px;
+  color: #000;
+  outline: none;
+  width: 100%
+}
+.checkBoxLabel {
+  color: rgba(142, 142, 142, 1);
+  
 }
