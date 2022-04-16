@@ -10,27 +10,16 @@ body {
   top: 15px;
   cursor: pointer;
 }
-
-.registerDark {
-  /* display: flex; */ 
-  background-color: #2C2C2C; 
-}
-
 .info {
   width: 50%;
   height: 100%;
   background-color: rgba(218, 218, 218, 1);
   position: fixed;
 }
-.infoDark {
-  background-color: rgba(140, 140, 140, 1);
-}
+
 .InfoContainer {
   padding: 40px 0 0 40px;
   color: rgba(68, 74, 255, 1);
-}
-.InfoContainerDark {
-  color: rgba(254, 254, 254, 1);
 }
 .header {
   font-size: 30px;
@@ -39,12 +28,7 @@ body {
   position: relative;
   bottom: 15px;
 }
-.title {
-  margin-bottom: 5px;
-}
-.title h2 {
-  margin: 0;
-}
+
 .article {
   font-size: 21px;
   width: 650px;
@@ -82,9 +66,7 @@ h3 {
   font-weight: 700;
   line-height: 25px;
   letter-spacing: 0.15px;
-}
-.titleDark, .headerDark {
-  color: rgba(254, 254, 254, 1);
+  margin-bottom: 5px;
 }
 
 form {
@@ -150,11 +132,50 @@ input[type="checkbox"] {
   border: none;
   cursor: pointer;
 }
-.RegisterButtonDark {
-  background-color: rgba(255, 191, 94, 1);
-}
 
 .error {
   color: rgba(238, 99, 86, 1);
   font-size: 13px;
+}
+
+/* FULL HD */
+
+@media screen and (min-width: 1920px) {
+  .header {
+    font-size: 35px;
+  }
+  .article {
+    font-size: 25px;
+    width: 850px;
+  }
+  .parallelograms {
+    width: 850px;
+  }
+  .large {
+    width: 56%  
+  }
+  .title {
+    font-size: 18px;
+  }
+}
+
+/* DARK THEME */
+
+.registerDark {
+  /* display: flex; */ 
+  background-color: #2C2C2C; 
+}
+
+.infoDark {
+  background-color: rgba(140, 140, 140, 1);
+}
+
+.titleDark, 
+.headerDark,
+.InfoContainerDark {
+  color: rgba(254, 254, 254, 1);
+}
+
+.RegisterButtonDark {
+  background-color: rgba(255, 191, 94, 1);
 }
