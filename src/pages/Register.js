@@ -1,5 +1,5 @@
 import React from 'react'
-import {Logo, ParalellogramSmall, ParalellogramLarge, Underline} from '../constants/icons'
+import {Logo, ParalellogramSmall, ParalellogramLarge, Underline, DarkModeIcon, LightModeIcon} from '../constants/icons'
 import { Formik } from 'formik';
 import { RegisterSchema } from '../constants/yupSchema';
 
@@ -8,6 +8,9 @@ import { RegisterSchema } from '../constants/yupSchema';
 function Register() {
   return (
     <div className='register'>
+      {<div className="icon" onClick={() => console.log("dark")}><DarkModeIcon /></div>}
+
+
         <div className="info">
              <div className="InfoContainer">
                 <div className="logo">

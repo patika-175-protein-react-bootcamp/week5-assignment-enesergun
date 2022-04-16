@@ -2,17 +2,26 @@
 
 body {
   font-family: 'Oxygen', sans-serif;
+  background-color: #F0F0F0;
+}
+.icon {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  cursor: pointer;
 }
 
 .register {
-  display: flex;
-  height: 100vh;
+  /* display: flex; */
+  
 }
 
 .info {
   width: 50%;
   height: 100%;
   background-color: rgba(218, 218, 218, 1);
+  position: fixed;
+  
 }
 .InfoContainer {
   padding: 40px 0 0 40px;
@@ -24,6 +33,9 @@ body {
 .underline {
   position: relative;
   bottom: 15px;
+}
+.title {
+  margin-bottom: 5px;
 }
 .title h2 {
   margin: 0;
@@ -38,12 +50,13 @@ body {
   flex-direction: column;
   align-items: flex-end;
 }
-.right {
+.large {
   width: 74%;
 }
 .form {
   width: 50%;
-  background-color: #F0F0F0;
+  
+  margin-left: 50%;  
   
 }
 .FormContainer {
@@ -66,6 +79,7 @@ h3 {
 
 form {
   margin-top: 20px;
+  
 }
 .formGroup {
   margin-bottom: 15px;
