@@ -6,6 +6,7 @@ body {
 
 .register {
   display: flex;
+  height: 100vh;
 }
 
 .info {
@@ -17,7 +18,7 @@ body {
   padding: 40px 0 0 40px;
   color: rgba(68, 74, 255, 1);
 }
-.title {
+.header {
   font-size: 30px;
 }
 .title h2 {
@@ -25,14 +26,36 @@ body {
 }
 .article {
   font-size: 21px;
-  max-width: 650px;
+  width: 650px;
 }
 .parallelograms {
   display: flex;
-  flex-direction: columngi;
+  /* flex-direction: column;
+  align-items: flex-end; */
+  width: 650px;
 }
-
 .form {
   width: 50%;
   background-color: #F0F0F0;
+}
+.FormContainer {
+  padding-top: 40px;
+  width: 50%;
+  margin: 0 auto;
+}
+
+h3 {
+  margin: 0;
+}
+
+.title {
+  color: rgba(60, 60, 60, 1);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 25px;
+  letter-spacing: 0.15px;
+}
+
+form {
+  margin-top: 30px;
 }
