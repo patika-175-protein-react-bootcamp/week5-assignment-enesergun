@@ -2,7 +2,7 @@ import React from 'react';
 
 
 const ParalellogramSmall = props => (
-    <svg width={props?.size || "261"} height="136" viewBox="0 0 361 136" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width="300" height="100" viewBox="0 0 361 136" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g filter="url(#filter0_ddd_1_350)">
         <path d="M20 115H292.546L340.316 19H67.7696L20 115Z" fill="#444AFF"/>
         </g>

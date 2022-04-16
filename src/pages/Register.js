@@ -25,15 +25,14 @@ function Register() {
                     Teknik beceriler kazanmaya başlamış ancak işe girmeye hazır olmayan kişiler bootcamp'lere başvururlar. 
                     Seçilen adaylar 4-8 haftalık ücretsiz ve yoğun eğitime kabul alırlar.
                      Bootcamp'lerde başarılı olan öğrenciler sponsor şirkette ya da sektörde başka şirketlere işe yerleşirler.
-                    </p>
+                    </p>                    
                 </div>
 
                 <div className="parallelograms">
-                    <div className="small"><ParalellogramSmall /></div>
+                    <span className="small"><ParalellogramSmall /></span>
                     <div className="large"><ParalellogramLarge /></div>
                 </div>
                 
-
              </div>
         </div>
 

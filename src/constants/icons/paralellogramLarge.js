@@ -2,7 +2,7 @@ import React from 'react'
 
 
 const ParalellogramLarge = props => (
-    <svg width="380" height="136" viewBox="0 0 521 136" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width="450" height="100" viewBox="0 0 521 136" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g filter="url(#filter0_ddd_1_348)">
         <path d="M20.592 115H453.138L500.908 19H68.3616L20.592 115Z" fill="#444AFF"/>
         </g>
@@ -31,6 +31,7 @@ const ParalellogramLarge = props => (
         </filter>
         </defs>
     </svg>
+
 )
 
 export default ParalellogramLarge;
