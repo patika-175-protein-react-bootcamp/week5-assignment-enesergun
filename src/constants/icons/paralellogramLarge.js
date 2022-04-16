@@ -4,7 +4,7 @@ import React from 'react'
 const ParalellogramLarge = props => (
     <svg width="450" height="100" viewBox="0 0 521 136" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g filter="url(#filter0_ddd_1_348)">
-        <path d="M20.592 115H453.138L500.908 19H68.3616L20.592 115Z" fill="#444AFF"/>
+        <path d="M20.592 115H453.138L500.908 19H68.3616L20.592 115Z" fill={props.color || "#444AFF"}/>
         </g>
         <defs>
         <filter id="filter0_ddd_1_348" x="0.59198" y="0" width="520.316" height="136" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">

@@ -1,18 +1,34 @@
-import React from 'react'
-import {Logo, ParalellogramSmall, ParalellogramLarge, Underline, DarkModeIcon, LightModeIcon} from '../constants/icons'
+import { useState, useEffect } from 'react'
+import {Logo, ParalellogramSmall, ParalellogramLarge, Underline, DarkModeIcon, LightModeIcon, LoadingIcon} from '../constants/icons'
 import { Formik } from 'formik';
 import { RegisterSchema } from '../constants/yupSchema';
+import useTheme from '../hooks/useTheme'
 
 
 
 function Register() {
+  const [loading, setLoading] = useState(false)
+  const [theme, ThemeSwitcher] = useTheme();
+
+  const handleTheme = (mode) => {
+    ThemeSwitcher(mode)
+  }
+
+  const sendRequest = () => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false)
+    }, 2000)
+  }
+
+    
   return (
-    <div className='register'>
-      {<div className="icon" onClick={() => console.log("dark")}><DarkModeIcon /></div>}
+    <div className={theme === 'light' ? "register" : "register registerDark"}>
+      {<div className="icon" onClick={() => handleTheme(theme)}>{theme === 'light' ? <DarkModeIcon /> : <LightModeIcon />}</div>}
 
 
-        <div className="info">
-             <div className="InfoContainer">
+        <div className={theme === 'light' ? "info" : "info infoDark"}>
+             <div className={theme === 'light' ? "InfoContainer" : "InfoContainer InfoContainerDark"}>
                 <div className="logo">
                     <Logo />
                 </div>
@@ -32,8 +48,8 @@ function Register() {
                 </div>
 
                 <div className="parallelograms">
-                    <span className="small"><ParalellogramSmall /></span>
-                    <div className="large"><ParalellogramLarge /></div>
+                    <span className="small"><ParalellogramSmall color={theme === 'light' ? "#444AFF" : "#FFBF5E"}/></span>
+                    <div className="large"><ParalellogramLarge color={theme === 'light' ? "#444AFF" : "#FFBF5E"} /></div>
                 </div>
                 
              </div>
@@ -41,9 +57,9 @@ function Register() {
 
         <div className="form">
             <div className="FormContainer">
-            <div className="header">
+            <div className={theme === 'light' ? 'header' : 'header headerDark'} >
                 <h3>Kayıt</h3>
-                <span className='underline'><Underline /></span>
+                <span className='underline'><Underline color={theme === 'light' ? "#444AFF" : "#FFBF5E"} /></span>
             </div>
             <Formik 
                 initialValues={{ 
@@ -56,13 +72,14 @@ function Register() {
                     }} 
                 validationSchema={RegisterSchema}
                 validateOnChange={false}
-                validateOnBlur={false}>
+                validateOnBlur={false}
+                onSubmit={() => sendRequest()}>
                     {
               ({ values, handleChange, handleSubmit, errors, touched  }) =>
                 <form >
                     <div className={'formGroup firstName'}>
                         <div className="formElement name">
-                            <label className='title'>İSİM</label>
+                            <label className={theme === 'light' ? 'title' : 'title titleDark'}>İSİM</label>
                             <input
                             type="text"
                             name="name"
@@ -73,7 +90,7 @@ function Register() {
                             {errors.name && <div className='error'>{errors.name}</div>}
                         </div>
                         <div className="formElement surname">
-                            <label className='title'>SOYİSİM</label>
+                            <label className={theme === 'light' ? 'title' : 'title titleDark'}>SOYİSİM</label>
                             <input
                             type="text"
                             name="surname"
@@ -87,7 +104,7 @@ function Register() {
                   
                   <div className={'formGroup'}>
                     <div className="formElement email">
-                        <label className='required title'>E-POSTA</label>
+                        <label className={theme === 'light' ? 'required title' : 'required title titleDark'}>E-POSTA</label>
                         <input
                         type="text"
                         name="email"
@@ -100,7 +117,7 @@ function Register() {
                   </div>
                   <div className={'formGroup'}>
                     <div className="formElement username">
-                    <label className='required title'>KULLANICI ADI</label>
+                    <label className={theme === 'light' ? 'required title' : 'required title titleDark'}>KULLANICI ADI</label>
                     <input
                       type="text"
                       name="username"
@@ -114,7 +131,7 @@ function Register() {
 
                   <div className={'formGroup'}>
                     <div className="formElement password">
-                    <label className='required title'>ŞİFRE</label>
+                    <label className={theme === 'light' ? 'required title' : 'required title titleDark'}>ŞİFRE</label>
                     <input
                       type="password"
                       name="password"
@@ -128,7 +145,7 @@ function Register() {
 
                   <div className={'formGroup'}>
                     <div className="formElement confirmPassword">
-                    <label className='required title'>ŞİFRENİ TEKRAR GİR</label>
+                    <label className={theme === 'light' ? 'required title' : 'required title titleDark'}>ŞİFRENİ TEKRAR GİR</label>
                     <input
                       type="password"
                       name="confirmPassword"
@@ -150,8 +167,10 @@ function Register() {
                     </div>
                   </div>
                   <div className='formGroup formButton'>
-                    <button className='RegisterButton' type='submit' onClick={handleSubmit} >
-                        KAYIT OL                      
+                    <button className={theme === 'light' ? "RegisterButton" : "RegisterButton RegisterButtonDark"} type='submit' onClick={handleSubmit} >
+                    {
+                        loading ? <LoadingIcon size={15} /> : 'KAYIT OL'
+                      }                      
                     </button>
                     <span></span>
                   </div>
