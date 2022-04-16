@@ -95,5 +95,21 @@ input[type="password"] {
 }
 .checkBoxLabel {
   color: rgba(142, 142, 142, 1);
-  
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+}
+input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #8E8E8E;
+  background-color: transparent;
+}
+.RegisterButton {
+  width: 100%;
+  height: 56px;
+  background-color: rgba(68, 74, 255, 1);
+  color: rgba(240, 240, 240, 1);
+  border: none;
+  cursor: pointer;
 }

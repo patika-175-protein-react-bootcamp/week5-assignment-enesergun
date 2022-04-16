@@ -136,14 +136,15 @@ function Register() {
 
                   <div className="formGroup">
                     <div className="formElement">
-                        <label className='checkBoxLabel'>                
-                            <Field type="checkbox" name="checked" value="acceptTerm" />
-                            Sözleşmeyi kabul ediyorum
+                        <label className="checkBoxLabel">
+                        <input type="checkbox" name="checked" value="acceptTerm" />                                                    
+                            <p>Sözleşmeyi kabul ediyorum</p>
                         </label>
+                        
                     </div>
                   </div>
                   <div className='formGroup formButton'>
-                    <button className='loginButton' type='submit' onClick={handleSubmit} >
+                    <button className='RegisterButton' type='submit' onClick={handleSubmit} >
                         Kayıt Ol                      
                     </button>
                     <span></span>
