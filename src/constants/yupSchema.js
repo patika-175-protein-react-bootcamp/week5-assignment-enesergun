@@ -2,10 +2,12 @@ import * as yup from 'yup';
 
 export const RegisterSchema = yup.object().shape({
     name: yup
-    .string(),
+    .string()
+    .min(2, 'İsminiz en az 2 karakter olmalıdır.'),
 
     surname: yup
-    .string(),
+    .string()
+    .min(2, 'Soyisminiz en az 2 karakter olmalıdır.'),
 
     email: yup
     .string()

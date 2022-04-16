@@ -1,7 +1,8 @@
 import React from 'react'
 import {Logo, ParalellogramSmall, ParalellogramLarge, Underline} from '../constants/icons'
-import { Formik, Field } from 'formik';
+import { Formik } from 'formik';
 import { RegisterSchema } from '../constants/yupSchema';
+
 
 
 function Register() {
@@ -35,11 +36,12 @@ function Register() {
 
              </div>
         </div>
+
         <div className="form">
             <div className="FormContainer">
             <div className="header">
                 <h3>Kayıt</h3>
-                <Underline />
+                <span className='underline'><Underline /></span>
             </div>
             <Formik 
                 initialValues={{ 
@@ -50,9 +52,11 @@ function Register() {
                     password: '',
                     confirmPassword: '',
                     }} 
-                validationSchema={RegisterSchema}>
+                validationSchema={RegisterSchema}
+                validateOnChange={false}
+                validateOnBlur={false}>
                     {
-              ({ values, handleChange, handleSubmit, errors }) =>
+              ({ values, handleChange, handleSubmit, errors, touched  }) =>
                 <form >
                     <div className={'formGroup firstName'}>
                         <div className="formElement name">
@@ -64,7 +68,7 @@ function Register() {
                             value={values.name}
                             onChange={handleChange}
                         />
-                            <span>{errors.name}</span>
+                            {errors.name && <div className='error'>{errors.name}</div>}
                         </div>
                         <div className="formElement surname">
                             <label className='title'>SOYİSİM</label>
@@ -75,21 +79,21 @@ function Register() {
                             value={values.surname}
                             onChange={handleChange}
                             />
-                            <span>{errors.surname}</span>
+                            {errors.surname && <div className='error'>{errors.surname}</div>}
                         </div>
                     </div>
                   
                   <div className={'formGroup'}>
                     <div className="formElement email">
-                        <label className='required title'>EMAIL</label>
+                        <label className='required title'>E-POSTA</label>
                         <input
                         type="text"
                         name="email"
                         placeholder='Eposta adresinizi giriniz'
                         value={values.email}
-                        onChange={handleChange}
+                        onChange={handleChange}                        
                         />
-                        <span>{errors.email}</span>
+                        {errors.email && <span className='error'>{errors.email}</span>}                      
                     </div>
                   </div>
                   <div className={'formGroup'}>
@@ -102,13 +106,13 @@ function Register() {
                       value={values.username}
                       onChange={handleChange}
                       />
-                    <span>{errors.username}</span>
+                    {errors.username && <span className='error'>{errors.username}</span>}   
                     </div>
                   </div>
 
                   <div className={'formGroup'}>
                     <div className="formElement password">
-                    <label className='required title'>PASSWORD</label>
+                    <label className='required title'>ŞİFRE</label>
                     <input
                       type="password"
                       name="password"
@@ -116,7 +120,7 @@ function Register() {
                       value={values.password}
                       onChange={handleChange}
                       />
-                    <span>{errors.password}</span>
+                    {errors.password && <span className='error'>{errors.password}</span>}   
                     </div>
                   </div>
 
@@ -130,7 +134,7 @@ function Register() {
                       value={values.confirmPassword}
                       onChange={handleChange}
                       />
-                    <span>{errors.confirmPassword}</span>
+                    {errors.confirmPassword && <span className='error'>{errors.confirmPassword}</span>}   
                     </div>
                   </div>
 
@@ -145,7 +149,7 @@ function Register() {
                   </div>
                   <div className='formGroup formButton'>
                     <button className='RegisterButton' type='submit' onClick={handleSubmit} >
-                        Kayıt Ol                      
+                        KAYIT OL                      
                     </button>
                     <span></span>
                   </div>
