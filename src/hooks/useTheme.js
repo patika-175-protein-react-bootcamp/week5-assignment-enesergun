@@ -1,15 +1,19 @@
 import {useState, useEffect} from 'react'
 
 const useTheme = () => {
-    const [theme, setTheme] = useState('light');
+    const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
 
     const ThemeSwitcher = (mode) => {
         if (mode === 'light') {
-            setTheme('dark')
+            localStorage.setItem('theme', 'dark');
+            setTheme('dark');
+            
         } else {
-            setTheme('light')
+            localStorage.setItem('theme', 'light');
+            setTheme('light');            
+            
         }
-        
+         
     }
 
 

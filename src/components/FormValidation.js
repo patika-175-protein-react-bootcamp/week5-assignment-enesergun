@@ -11,7 +11,9 @@ let validatonElements = [{
     confirmPassword: {type: "password", name: "confirmPassword", required: "required", placeholder:"Şifreni doğrula.", innerText: "ŞİFRENİ TEKRAR GİR"}
 }]
 
-console.log(validatonElements[0]["email"].placeholder)
+
+
+/* console.log(Object.keys(validatonElements[0]).map((item, index) => console.log(validatonElements[0][item].innerText))) */
 
 
 const FormValidation = ({values, theme, handleChange, errors, }) => {
@@ -46,12 +48,12 @@ const FormValidation = ({values, theme, handleChange, errors, }) => {
         {/* {
             Object.keys(validatonElements[0]).map((item, index) => (
                 <div className='formGroup' key={index}>
-                    <div className={`formElement ${validatonElements[0][`${item}`].name}`}>
-                    <label className={theme === 'light' ? `${validatonElements[0][`${item}`].required} title` : `${validatonElements[0][`${item}`].required} title titleDark`}>{validatonElements[0][`${item}`].placeholder}</label>
+                    <div className={`formElement ${validatonElements[0][item].name}`}>
+                    <label className={theme === 'light' ? `${validatonElements[0][item].required} title` : `${validatonElements[0][item].required} title titleDark`}>{validatonElements[0][item].placeholder}</label>
                     <input
-                        type={validatonElements[0][`${item}`].type}
-                        name={validatonElements[0][`${item}`].name}
-                        placeholder={validatonElements[0][`${item}`].placeholder}
+                        type={validatonElements[0][item].type}
+                        name={validatonElements[0][item].name}
+                        placeholder={validatonElements[0][item].placeholder}
                         value={values.email}
                         onChange={handleChange}                        
                         />
