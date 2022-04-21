@@ -47,14 +47,12 @@ function Register() {
                     password: '',
                     confirmPassword: '',
                     }} 
-                validationSchema={RegisterSchema}
-                validateOnChange={false}
-                validateOnBlur={false}
+                validationSchema={RegisterSchema}                
                 onSubmit={() => sendRequest()}>
                     {
-              ({ values, handleChange, handleSubmit, errors, touched  }) =>
+              ({ values, handleChange, handleSubmit, errors, touched, handleBlur   }) =>
                 <form >
-                  <FormValidation values={values} theme={theme} handleChange={handleChange} errors={errors} />
+                  <FormValidation values={values} theme={theme} handleChange={handleChange} errors={errors} touched={touched} handleBlur={handleBlur} />
                     
                   <div className='formGroup formButton'> 
                     <RegisterButton theme={theme} onClick={handleSubmit} loading={loading}/>                  

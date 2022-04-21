@@ -16,7 +16,7 @@ let validatonElements = [{
 /* console.log(Object.keys(validatonElements[0]).map((item, index) => console.log(validatonElements[0][item].innerText))) */
 
 
-const FormValidation = ({values, theme, handleChange, errors, }) => {
+const FormValidation = ({values, theme, handleChange, errors, touched, handleBlur  }) => {
 
     return (
         <>
@@ -28,9 +28,9 @@ const FormValidation = ({values, theme, handleChange, errors, }) => {
                         name="name"
                         placeholder='İsminizi giriniz'
                         value={values.name}
-                        onChange={handleChange}
+                        onChange={handleChange}                    
                     />
-                    {errors.name && <div className='error'>{errors.name}</div>}
+                    <span className="error">{touched.name && errors.name}</span>
             </div>
 
             <div className="formElement surname">
@@ -40,9 +40,9 @@ const FormValidation = ({values, theme, handleChange, errors, }) => {
                         name="surname"
                         placeholder='Soyisminizi giriniz'
                         value={values.surname}
-                        onChange={handleChange}
+                        onChange={handleChange}                        
                     />
-                    {errors.surname && <div className='error'>{errors.surname}</div>}
+                    <span className="error">{touched.surname && errors.username}</span>
             </div>
         </div>
         {/* {
@@ -71,9 +71,10 @@ const FormValidation = ({values, theme, handleChange, errors, }) => {
                         name="email"
                         placeholder='Eposta adresinizi giriniz'
                         value={values.email}
-                        onChange={handleChange}                        
+                        onChange={handleChange}
+                        onBlur={handleBlur}
                         />
-                        {errors.email && <span className='error'>{errors.email}</span>}                      
+                        <span className="error">{touched.email && errors.email}</span>
                     </div>
                   </div>
                   <div className={'formGroup'}>
@@ -85,8 +86,9 @@ const FormValidation = ({values, theme, handleChange, errors, }) => {
                       placeholder='Kullanıcı adınızı giriniz'
                       value={values.username}
                       onChange={handleChange}
+                      onBlur={handleBlur}
                       />
-                    {errors.username && <span className='error'>{errors.username}</span>}   
+                    <span className="error">{touched.username && errors.username} </span>
                     </div>
                   </div>
 
@@ -99,8 +101,9 @@ const FormValidation = ({values, theme, handleChange, errors, }) => {
                       placeholder='Enter your password'
                       value={values.password}
                       onChange={handleChange}
+                      onBlur={handleBlur}
                       />
-                    {errors.password && <span className='error'>{errors.password}</span>}   
+                    <span className="error">{touched.password && errors.password}</span>
                     </div>
                   </div>
 
@@ -113,8 +116,11 @@ const FormValidation = ({values, theme, handleChange, errors, }) => {
                       placeholder='Şifreni Doğrula'
                       value={values.confirmPassword}
                       onChange={handleChange}
+                      onBlur={handleBlur}
                       />
-                    {errors.confirmPassword && <span className='error'>{errors.confirmPassword}</span>}   
+                    
+                      <span className='error'>{touched.confirmPassword && errors.confirmPassword}</span>
+                    
                     </div>
                   </div>
 
